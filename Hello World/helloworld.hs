@@ -1,5 +1,7 @@
 makeGreeting :: String -> String
-makeGreeting arg1 = "Greetings, " ++ arg1 ++ "!"
+makeGreeting arg1 | arg1 == "Aayla" = "Greetings, " ++ arg1 ++ "!" 
+                  | arg1 /= "Aayla" = "Hi, " ++ arg1 ++ "."
 
 main = do
-    print(makeGreeting "Aayla")
+    putStrLn (makeGreeting "Not Aayla")
+    putStrLn (makeGreeting "Aayla")
