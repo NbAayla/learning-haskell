@@ -1,7 +1,10 @@
-makeGreeting :: String -> String
-makeGreeting arg1 | arg1 == "Aayla" = "Greetings, " ++ arg1 ++ "!" 
-                  | arg1 /= "Aayla" = "Hi, " ++ arg1 ++ "."
+makeGreeting :: Bool -> String
+makeGreeting arg1 | arg1 = "Greetings, Aayla!"
+                  | not arg1 = "Hi!"
+isAayla :: String -> Bool
+isAayla arg1 = arg1 == "Aayla"
+
 
 main = do
-    putStrLn (makeGreeting "Not Aayla")
-    putStrLn (makeGreeting "Aayla")
+    putStrLn ((makeGreeting.isAayla) "Aayla")
+    putStrLn ((makeGreeting.isAayla) "Blinky")
